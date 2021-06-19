@@ -1,5 +1,24 @@
-// google fonts import
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+//font attach
+@font-face {
+    font-family: "Manrope-Bold";
+    src: url("../fonts/Manrope-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Manrope-ExtraBold";
+    src: url("../fonts/Manrope-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Manrope-Medium";
+    src: url("../fonts/Manrope-Medium.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Manrope-Regular";
+    src: url("../fonts/Manrope-Regular.ttf") format("truetype");
+}
+
 @import "./consts/main.scss";
 @import "./mixins/main.scss";
 @import "./base/main.scss";

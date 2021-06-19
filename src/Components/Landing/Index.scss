@@ -1,0 +1,42 @@
+.section-body-wrapper {
+    height: 100vh;
+    background-image: url("../../assets/images/weather-bg.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    h1 {
+        font: 20px $ManropeMedium;
+        color: $font-white;
+        padding: 10px;
+    }
+    .content-wrapper {
+        padding-top: 60px;
+        .search-form {
+            top: 10%;
+            position: relative;
+            margin: 0px auto;
+            max-width: 700px;
+            display: flex;
+            .form-group {
+                align-items: center;
+                width: 70%;
+                input[type="text"] {
+                    padding: 25px;
+                    border-radius: 30px;
+                    border: 0;
+                    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+                    &::placeholder {
+                        font: 15px $ManropeRegular;
+                    }
+                }
+            }
+            button {
+                width: 30%;
+                height: 50px;
+                margin-left: 20px;
+                @include border-radius(30px);
+                font: 15px $ManropeRegular;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+            }
+        }
+    }
+}
