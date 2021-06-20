@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
+import Renderweatherdata from "./Weather-data";
 
 const Renderindex = (props) => {
   return (
@@ -24,7 +25,7 @@ const Renderindex = (props) => {
               />
             </Form.Group>
             <Button variant="primary" type="submit">
-              Submit
+              Get Weather
             </Button>
           </Form>
         </Container>
@@ -36,6 +37,13 @@ const Renderindex = (props) => {
             <h4>{moment(props.getCurrentDate).format("dddd DD MMMM")}</h4>
           )}
         </div>
+        <Container>
+          <Renderweatherdata
+            getWeatherImage={props.getWeatherImage}
+            getTemp={props.getTemp}
+            getWeatherText={props.getWeatherText}
+          />
+        </Container>
       </div>
     </section>
   );
