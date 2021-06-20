@@ -1,2 +1,2 @@
-export const baseUrl = "https://api.covid19india.org/";
-export const countryWiseUrl = "https://corona.lmao.ninja/v2/";
+export const baseUrl = "https://api.weatherapi.com/v1/";
+export const countryList = "https://api.first.org/";

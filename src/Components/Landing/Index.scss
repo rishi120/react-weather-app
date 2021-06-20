@@ -38,5 +38,21 @@
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
             }
         }
+        .data-wrapper {
+            padding-left: 10px;
+            h1 {
+                font: 45px $ManropeBold;
+                margin-bottom: 0;
+                padding-bottom: 0;
+                span {
+                    font-size: 30px;
+                }
+            }
+            h4 {
+                font: 23px $ManropeMedium;
+                color: $font-white;
+                padding-left: 15px;
+            }
+        }
     }
 }
