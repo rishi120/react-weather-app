@@ -13,7 +13,11 @@ const Rendermastercomponent = () => {
   const [getWeatherImage, setGetWeatherImage] = useState(false);
   const [getTemp, setGetTemp] = useState(false);
   const [getWeatherText, setGetWeatherText] = useState(false);
-  console.log(getWeatherImage);
+  const [showDivElement, setShowDivElement] = useState(false);
+  const [getMaxTemp, setGetMaxTemp] = useState();
+  const [getMinTemp, setGetMinTemp] = useState();
+  const [getSunrise, setGetSunrise] = useState();
+  const [getSunset, setGetSunset] = useState();
 
   useEffect(() => {
     setTimeout(() => {
@@ -31,6 +35,7 @@ const Rendermastercomponent = () => {
     setGetWeatherImage(false);
     setGetTemp(false);
     setGetWeatherText(false);
+    setShowDivElement(false);
     Axios.get(
       baseUrl +
         `forecast.json?key=6c023bf0b1074dabb5f90226211906&q=${inputValue}&days=1&aqi=no&alerts=no`
@@ -42,6 +47,11 @@ const Rendermastercomponent = () => {
         setGetWeatherImage(response.data.current.condition.icon);
         setGetTemp(response.data.current.temp_c);
         setGetWeatherText(response.data.current.condition.text);
+        setGetMaxTemp(response.data.forecast.forecastday[0].day.maxtemp_c);
+        setGetMinTemp(response.data.forecast.forecastday[0].day.mintemp_c);
+        setGetSunrise(response.data.forecast.forecastday[0].astro.sunrise);
+        setGetSunset(response.data.forecast.forecastday[0].astro.sunset);
+        setShowDivElement(true);
       })
       .catch((error) => {
         console.log(error);
@@ -60,6 +70,11 @@ const Rendermastercomponent = () => {
       getWeatherImage={getWeatherImage}
       getTemp={getTemp}
       getWeatherText={getWeatherText}
+      getMaxTemp={getMaxTemp}
+      getMinTemp={getMinTemp}
+      getSunrise={getSunrise}
+      getSunset={getSunset}
+      showDivElement={showDivElement}
     />
   );
 };

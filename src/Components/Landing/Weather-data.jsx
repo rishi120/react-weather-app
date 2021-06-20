@@ -4,7 +4,24 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Renderweatherdata = (props) => {
-  console.log(props.getWeatherImage);
+  const weatherData = [
+    {
+      data: props.getMaxTemp,
+      text: "High",
+    },
+    {
+      data: props.getMinTemp,
+      text: "Low",
+    },
+    {
+      data: props.getSunrise,
+      text: "Sunrise",
+    },
+    {
+      data: props.getSunset,
+      text: "Sunset",
+    },
+  ];
   return (
     <div className="weather-data-wrapper">
       <Row>
@@ -37,7 +54,24 @@ const Renderweatherdata = (props) => {
           </div>
         </Col>
         <Col md={6}>
-          <div className="col-content-wrapper">ddd</div>
+          <div className="col-content-wrapper">
+            {props.showDivElement && (
+              <div className="col-data-wrapper">
+                <Row>
+                  {weatherData.map((getData) => {
+                    return (
+                      <Col md={3} key={getData.data}>
+                        <div className="inner-col-wrapper">
+                          <h1>{getData.data}</h1>
+                          <p>{getData.text}</p>
+                        </div>
+                      </Col>
+                    );
+                  })}
+                </Row>
+              </div>
+            )}
+          </div>
         </Col>
       </Row>
     </div>

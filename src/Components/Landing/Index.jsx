@@ -42,6 +42,11 @@ const Renderindex = (props) => {
             getWeatherImage={props.getWeatherImage}
             getTemp={props.getTemp}
             getWeatherText={props.getWeatherText}
+            getMaxTemp={props.getMaxTemp}
+            getMinTemp={props.getMinTemp}
+            getSunrise={props.getSunrise}
+            getSunset={props.getSunset}
+            showDivElement={props.showDivElement}
           />
         </Container>
       </div>
