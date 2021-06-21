@@ -18,6 +18,8 @@ const Rendermastercomponent = () => {
   const [getMinTemp, setGetMinTemp] = useState();
   const [getSunrise, setGetSunrise] = useState();
   const [getSunset, setGetSunset] = useState();
+  const [showForecast, setShowForecast] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     /* gsap animation */
@@ -43,11 +45,13 @@ const Rendermastercomponent = () => {
 
   function handleFormSubmit(e) {
     e.preventDefault();
+    setGetCityName(false);
     setGetCurrentDate(false);
     setGetWeatherImage(false);
     setGetTemp(false);
     setGetWeatherText(false);
     setShowDivElement(false);
+    setLoading(true);
     Axios.get(
       baseUrl +
         `forecast.json?key=6c023bf0b1074dabb5f90226211906&q=${inputValue}&days=1&aqi=no&alerts=no`
@@ -63,7 +67,9 @@ const Rendermastercomponent = () => {
         setGetMinTemp(response.data.forecast.forecastday[0].day.mintemp_c);
         setGetSunrise(response.data.forecast.forecastday[0].astro.sunrise);
         setGetSunset(response.data.forecast.forecastday[0].astro.sunset);
+        setShowForecast(response.data.forecast.forecastday[0].hour);
         setShowDivElement(true);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -87,6 +93,8 @@ const Rendermastercomponent = () => {
       getSunrise={getSunrise}
       getSunset={getSunset}
       showDivElement={showDivElement}
+      showForecast={showForecast}
+      loading={loading}
     />
   );
 };

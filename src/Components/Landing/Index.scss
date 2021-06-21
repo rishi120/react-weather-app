@@ -3,10 +3,16 @@
     background-image: url("../../assets/images/weather-bg.jpg");
     background-attachment: fixed;
     background-size: cover;
-    h1 {
-        font: 20px $ManropeMedium;
+    position: relative;
+    .loader {
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font: 30px $ManropeBold;
         color: $font-white;
-        padding: 10px 0 0 20px;
     }
     .content-wrapper {
         padding-top: 60px;
@@ -57,7 +63,7 @@
             }
         }
         .weather-data-wrapper {
-            padding-top: 30px;
+            padding-top: 20px;
             img {
                 width: 100%;
             }
@@ -89,18 +95,53 @@
                     h1 {
                         font: 20px $ManropeMedium;
                         padding-left: 0;
-                        background: linear-gradient(225deg, #3ee3c5 0%, #1d54df 100%);
-                        background-clip: text;
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
+                        color: $font-white;
                     }
                     p {
                         font: 18px $ManropeMedium;
-                        background: linear-gradient(225deg, #3ee3c5 0%, #1d54df 100%);
-                        background-clip: text;
-                        -webkit-background-clip: text;
-                        -webkit-text-fill-color: transparent;
+                        color: $font-white;
                     }
+                }
+            }
+        }
+        .main-wrapper {
+            padding-top: 30px;
+            h1 {
+                font: 20px $ManropeMedium;
+                color: $font-white;
+            }
+        }
+        .forecast-wrapper {
+            display: flex;
+            overflow: scroll hidden;
+            margin-top: 15px;
+            padding-bottom: 10px;
+            .hourly-data {
+                @media #{$mq7a} {
+                    flex-basis: 125px;
+                }
+                flex-shrink: 0;
+                padding: 10px;
+                margin: 0px 5px;
+                border-radius: 5px;
+                background-color: rgba(255,
+                255,
+                255,
+                0.2);
+                backdrop-filter: blur(10px);
+                h2 {
+                    font: 15px $ManropeMedium;
+                    color: $font-white;
+                    text-align: center;
+                }
+                img {
+                    display: block;
+                    margin: auto;
+                }
+                h1 {
+                    font: 20px $ManropeBold;
+                    color: $font-white;
+                    text-align: center;
                 }
             }
         }
