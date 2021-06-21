@@ -20,6 +20,18 @@ const Rendermastercomponent = () => {
   const [getSunset, setGetSunset] = useState();
 
   useEffect(() => {
+    /* gsap animation */
+    const items = ["#animateInputField", "#animate-button"];
+    const masterTimeline = gsap.timeline();
+    items.map((animateSelectors) => {
+      masterTimeline.from(animateSelectors, {
+        y: -50,
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.5,
+        ease: "power2.inOut",
+      });
+    });
     setTimeout(() => {
       handleInputFocus.current.focus();
     }, 300);

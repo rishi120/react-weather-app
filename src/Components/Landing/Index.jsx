@@ -22,9 +22,10 @@ const Renderindex = (props) => {
                 onChange={(e) => props.handleChange(e.target.value)}
                 ref={props.handleInputFocus}
                 value={props.inputValue}
+                id="animateInputField"
               />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" id="animate-button">
               Get Weather
             </Button>
           </Form>
