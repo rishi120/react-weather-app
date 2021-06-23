@@ -28,7 +28,7 @@ const Renderweatherdata = (props) => {
         <Col md={6}>
           <div className="col-content-wrapper">
             <Row className="no-gutters">
-              <Col md={3}>
+              <Col xs={3}>
                 <div className="temp-data">
                   {props.getWeatherImage && (
                     <img
@@ -39,7 +39,7 @@ const Renderweatherdata = (props) => {
                   )}
                 </div>
               </Col>
-              <Col md={9}>
+              <Col xs={9}>
                 <div className="temp-data">
                   {props.getTemp && (
                     <h1>
@@ -60,7 +60,7 @@ const Renderweatherdata = (props) => {
                 <Row>
                   {weatherData.map((getData) => {
                     return (
-                      <Col md={3} key={getData.data}>
+                      <Col xs={3} key={getData.data}>
                         <div className="inner-col-wrapper">
                           <h1>{getData.data}</h1>
                           <p>{getData.text}</p>

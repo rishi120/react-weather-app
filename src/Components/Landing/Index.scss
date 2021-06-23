@@ -1,5 +1,8 @@
 .section-body-wrapper {
     height: 100vh;
+    @media #{$mq7b} {
+        padding-bottom: 50px;
+    }
     background-image: url("../../assets/images/weather-bg.jpg");
     background-attachment: fixed;
     background-size: cover;
@@ -42,6 +45,10 @@
                 @include border-radius(30px);
                 font: 15px $ManropeRegular;
                 box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+                @media #{$mq7b} {
+                    font-size: 14px;
+                    width: 40%;
+                }
             }
         }
         .data-wrapper {
@@ -90,6 +97,9 @@
                 margin: 20px 0px;
                 background-color: rgba(255, 255, 255, 0.2);
                 border-radius: 10px;
+                @media #{$mq7b} {
+                    backdrop-filter: blur(20px);
+                }
                 .inner-col-wrapper {
                     display: flex;
                     flex-direction: column;
@@ -98,10 +108,16 @@
                         font: 20px $ManropeMedium;
                         padding-left: 0;
                         color: $font-white;
+                        @media #{$mq7b} {
+                            font-size: 13px;
+                        }
                     }
                     p {
                         font: 18px $ManropeMedium;
                         color: $font-white;
+                        @media #{$mq7b} {
+                            font-size: 15px;
+                        }
                     }
                 }
             }
