@@ -40,7 +40,12 @@ const Renderindex = (props) => {
             )}
 
             {props.getCurrentDate && (
-              <h4>{moment(props.getCurrentDate).format("dddd DD MMMM")}</h4>
+              <h4>
+                <span style={{ paddingRight: "5px" }}>
+                  {moment(props.getCurrentDate).format("dddd DD MMMM")},
+                </span>
+                <span>{moment(props.showLocalTime).format("hh:mm:ss a")}</span>
+              </h4>
             )}
           </div>
           <Container>

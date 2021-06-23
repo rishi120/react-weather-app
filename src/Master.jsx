@@ -20,6 +20,7 @@ const Rendermastercomponent = () => {
   const [getSunset, setGetSunset] = useState();
   const [showForecast, setShowForecast] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [showLocalTime, setShowLocalTime] = useState();
 
   useEffect(() => {
     /* gsap animation */
@@ -57,9 +58,10 @@ const Rendermastercomponent = () => {
         `forecast.json?key=6c023bf0b1074dabb5f90226211906&q=${inputValue}&days=1&aqi=no&alerts=no`
     )
       .then((response) => {
-        setGetCityName(response.data.location.name + ",");
-        setGetCurrentDate(response.data.forecast.forecastday[0].date);
+        setGetCityName(response.data.location.name.toLowerCase() + ",");
+        setGetCurrentDate(response.data.forecast.forecastday[0].date + ",");
         setGetCountryName(response.data.location.country);
+        setShowLocalTime(response.data.location.localtime);
         setGetWeatherImage(response.data.current.condition.icon);
         setGetTemp(response.data.current.temp_c);
         setGetWeatherText(response.data.current.condition.text);
@@ -95,6 +97,7 @@ const Rendermastercomponent = () => {
       showDivElement={showDivElement}
       showForecast={showForecast}
       loading={loading}
+      showLocalTime={showLocalTime}
     />
   );
 };

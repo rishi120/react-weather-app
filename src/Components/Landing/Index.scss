@@ -52,6 +52,7 @@
                 padding-bottom: 0;
                 padding-left: 10px;
                 color: $font-white;
+                text-transform: capitalize;
                 span {
                     font-size: 30px;
                 }
@@ -60,6 +61,7 @@
                 font: 23px $ManropeMedium;
                 color: $font-white;
                 padding-left: 15px;
+                text-transform: capitalize;
             }
         }
         .weather-data-wrapper {
@@ -78,7 +80,7 @@
                     color: $font-white;
                 }
                 h3 {
-                    font: 28px $ManropeMedium;
+                    font: 22px $ManropeMedium;
                     color: $font-white;
                     padding-left: 20px;
                 }
