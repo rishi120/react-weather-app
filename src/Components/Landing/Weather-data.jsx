@@ -57,7 +57,7 @@ const Renderweatherdata = (props) => {
           <div className="col-content-wrapper">
             {props.showDivElement && (
               <div className="col-data-wrapper">
-                <Row>
+                <Row style={{ margin: "auto" }}>
                   {weatherData.map((getData) => {
                     return (
                       <Col xs={3} key={getData.data}>

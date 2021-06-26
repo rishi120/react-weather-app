@@ -21,6 +21,7 @@ const Rendermastercomponent = () => {
   const [showForecast, setShowForecast] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showLocalTime, setShowLocalTime] = useState();
+  const [showInvalidMessage, setShowInvalidMessage] = useState();
 
   useEffect(() => {
     /* gsap animation */
@@ -53,6 +54,7 @@ const Rendermastercomponent = () => {
     setGetWeatherText(false);
     setShowDivElement(false);
     setLoading(true);
+    setShowInvalidMessage(false);
     Axios.get(
       baseUrl +
         `forecast.json?key=6c023bf0b1074dabb5f90226211906&q=${inputValue}&days=1&aqi=no&alerts=no`
@@ -74,7 +76,8 @@ const Rendermastercomponent = () => {
         setLoading(false);
       })
       .catch((error) => {
-        console.log(error);
+        setShowInvalidMessage(true);
+        setLoading(false);
       });
   }
 
@@ -98,6 +101,7 @@ const Rendermastercomponent = () => {
       showForecast={showForecast}
       loading={loading}
       showLocalTime={showLocalTime}
+      showInvalidMessage={showInvalidMessage}
     />
   );
 };

@@ -7,12 +7,21 @@ import Button from "react-bootstrap/Button";
 import moment from "moment";
 import Renderweatherdata from "./Weather-data";
 import Renderforecast from "./Forecast";
+import sadImage from "../../assets/images/sad.png";
 
 const Renderindex = (props) => {
   return (
     <>
       <section className="section-body-wrapper">
         {props.loading && <h1 className="loader">Loading...</h1>}
+        {props.showInvalidMessage && (
+          <div className="error-message-wrapper">
+            <h1>
+              <img src={sadImage} />
+              Sorry, the specified city was not found...
+            </h1>
+          </div>
+        )}
         <div className="content-wrapper">
           <Container>
             <Form className="search-form" onSubmit={props.handleFormSubmit}>
