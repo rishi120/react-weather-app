@@ -44,7 +44,7 @@ const Renderweatherdata = (props) => {
                   {props.getTemp && (
                     <h1>
                       {props.getTemp}
-                      <span>&#xb0;</span>
+                      <span>&#8451;</span>
                     </h1>
                   )}
                   {props.getWeatherText && <h3>{props.getWeatherText}</h3>}

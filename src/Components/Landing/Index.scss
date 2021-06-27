@@ -100,6 +100,10 @@
                 color: $font-white;
                 padding-left: 15px;
                 text-transform: capitalize;
+                @media #{$mq7b} {
+                    font-size: 20px;
+                    padding-left: 10px;
+                }
             }
         }
         .weather-data-wrapper {
@@ -116,6 +120,16 @@
                     font: 90px $ManropeBold;
                     line-height: 70px;
                     color: $font-white;
+                    position: relative;
+                    span {
+                        position: absolute;
+                        top: 0;
+                        margin-top: -20px;
+                        font-size: 25px;
+                        @media #{$mq7b} {
+                            margin-top: -5px;
+                        }
+                    }
                     @media #{$mq7b} {
                         font-size: 40px;
                         line-height: 30px;
