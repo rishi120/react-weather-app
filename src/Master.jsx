@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
-import gsap, { Power2 } from "gsap";
+import gsap from "gsap";
 import Axios from "axios";
 import { baseUrl } from "./Components/Landing/Utils/Baseurl";
+import { Apikey } from "./Components/Landing/Utils/api-key";
 import Renderindex from "./Components/Landing/Index";
 
 const Rendermastercomponent = () => {
@@ -23,24 +24,6 @@ const Rendermastercomponent = () => {
   const [showLocalTime, setShowLocalTime] = useState();
   const [showInvalidMessage, setShowInvalidMessage] = useState();
 
-  useEffect(() => {
-    /* gsap animation */
-    const items = ["#animateInputField", "#animate-button"];
-    const masterTimeline = gsap.timeline();
-    items.map((animateSelectors) => {
-      masterTimeline.from(animateSelectors, {
-        y: -50,
-        opacity: 0,
-        duration: 0.5,
-        delay: 0.5,
-        ease: "power2.inOut",
-      });
-    });
-    setTimeout(() => {
-      handleInputFocus.current.focus();
-    }, 300);
-  }, []);
-
   function handleChange(getInputValue) {
     setInputValue(getInputValue);
   }
@@ -57,7 +40,7 @@ const Rendermastercomponent = () => {
     setShowInvalidMessage(false);
     Axios.get(
       baseUrl +
-        `forecast.json?key=6c023bf0b1074dabb5f90226211906&q=${inputValue}&days=1&aqi=no&alerts=no`
+        `forecast.json?key=${Apikey}&q=${inputValue}&days=1&aqi=no&alerts=no`
     )
       .then((response) => {
         setGetCityName(response.data.location.name.toLowerCase() + ",");
@@ -80,6 +63,45 @@ const Rendermastercomponent = () => {
         setLoading(false);
       });
   }
+
+  useEffect(() => {
+    /* gsap animation */
+    const items = ["#animateInputField", "#animate-button"];
+    const masterTimeline = gsap.timeline();
+    items.map((animateSelectors) => {
+      masterTimeline.from(animateSelectors, {
+        y: -50,
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.5,
+      });
+    });
+    setTimeout(() => {
+      handleInputFocus.current.focus();
+    }, 300);
+  }, []);
+
+  useEffect(() => {
+    /* gsap animation */
+    const animateHeading1 = ".animate-heading-1";
+    const masterTimeline = gsap.timeline();
+    masterTimeline.from(animateHeading1, {
+      y: -50,
+      opacity: 0,
+      duration: 0.5,
+    });
+  }, [getCityName]);
+
+  useEffect(() => {
+    /* gsap animation */
+    const animateHeading2 = ".animate-heading-2";
+    const masterTimeline = gsap.timeline();
+    masterTimeline.from(animateHeading2, {
+      y: -50,
+      opacity: 0,
+      duration: 0.5,
+    });
+  }, [getCurrentDate]);
 
   return (
     <Renderindex

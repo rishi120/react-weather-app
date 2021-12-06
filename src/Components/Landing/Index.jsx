@@ -1,7 +1,5 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
@@ -43,13 +41,13 @@ const Renderindex = (props) => {
           </Container>
           <div className="data-wrapper">
             {props.getCityName && (
-              <h1>
+              <h1 className="animate-heading-1">
                 {props.getCityName} <span>{props.getCountryName}</span>
               </h1>
             )}
 
             {props.getCurrentDate && (
-              <h4>
+              <h4 className="animate-heading-2">
                 <span style={{ paddingRight: "5px" }}>
                   {moment(props.getCurrentDate).format("dddd DD MMMM")},
                 </span>
